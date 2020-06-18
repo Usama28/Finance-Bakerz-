@@ -31,3 +31,9 @@
     color: white;
     text-align: center;
  }
+
+#error-id
+{
+    color: white;
+    background-color: #088a49;
+}
