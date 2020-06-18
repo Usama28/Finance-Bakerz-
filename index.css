@@ -1,0 +1,66 @@
+body html
+{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#btn
+{
+    border-radius: 15px;
+}
+#second-right
+{
+    padding: 175px 57px 0px 68px;
+}
+#second-right h1
+{
+    color: green;
+}
+#vedio-id
+{
+    padding: 100px 40px 100px 32px;
+}
+#feature-section
+{
+    background: url(images/bg-green.jpg);
+    height: 630px;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.dark-overlay
+{
+    background-color: #085E33;
+    height: 630px;
+    position: absolute;
+    width: 100%;
+}
+#five-image
+{
+    margin: 10% 0% 10% 0%;
+}
+.my-1 img
+{
+    width: 61%;
+}
+#featured-img
+{
+    /* background-color: rgb(11, 221, 81); */
+    border: 1px solid transparent;
+    width: 23%;
+    padding-left: 15%;
+    border-radius: 31px;
+    background-color: #0c7e45;
+}
+.screen-img img
+{
+    width: 49%;
+    height: 100%;
+}
+#green-txt
+{
+    font-size: 39px;
+    padding: 67% 43% 24% -9%;
+    margin: 34% 33% 14% -6%;
+    color: white;
+}
