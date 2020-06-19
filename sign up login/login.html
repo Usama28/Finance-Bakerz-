@@ -10,9 +10,90 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </head>
+    <style>
+        #login-form
+        {
+            border: 1px solid transparent;
+            margin-top: 3%;
+            padding: 3% 6% 7% 6%;
+            box-shadow: 0px 0px 10px -3px grey;
+        }
+    </style>
+
+    <script>
+        function loginForm()
+        {
+            var mail=document.getElementById('email').value
+            var pass=document.getElementById('password').value
+
+            var storageMail=localStorage.getItem('Mail')
+            var storagePassword=localStorage.getItem('Password')
+
+            if(mail=='' || pass=='')
+            {
+                document.getElementById('error-msg').innerHTML='Fill All Fields'
+                document.querySelector('#error-msg').style.color='red';
+                setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
+                return false
+            }
+
+            else if(mail!=storageMail || pass!=storagePassword)
+            {
+                document.getElementById('error-msg').innerHTML='Incorrect Mail / Password'
+                document.querySelector('#error-msg').style.color='red';
+                setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
+                return false
+            }
+            else
+            {
+                alert('mubarak ho')
+            }
+        }
+    </script>
+    
+</head>
     
     <body>
-        <h1>pending</h1>
+        <!--head-->
+        <section class="sign-up "> 
+            <div class="p-3">
+                <a href="../index.html"><img src="../images/home-logo.png" class="px-4" ></a>
+            </div>
+        </section>
 
+        <!--form section-->
+        <section class="row h-100 justify-content-center align-items-center">
+            <form action="" id="login-form">
+                <div class="form-control-group">
+                    <img src="../images/logo-withText.png" style="width: 165px; margin-bottom: 13%;"> 
+                </div>
+                <div >
+                    <div class="form-control-group py-3 ">
+                        <input type="text" placeholder="Email" class="form-bottom"  id="email" >
+                    </div>
+                    <div class="form-control-group py-3">
+                        <input type="password" placeholder="Password" class="form-bottom" id="password" >
+                        <p id="error-msg" class="pt-3"></p>
+                    </div>
+                    <div>
+                        <button class="btn btn-warning text-light mt-3" 
+                        style="padding: 5% 29% 5% 33%;" onclick="return loginForm()">
+                            <i class="fa fa-unlock-alt px-1" ></i>LOGIN
+                    </div>
+                    
+                </div>
+            </form>
+            
+        </section>
+        <div class="row h-100 justify-content-center align-items-center py-3">
+            <a href="signup.html"><button class="btn btn-success"  style="padding: 10px 51px 9px 32px; margin-top: -90%;">
+                <i class="fa fa-user-plus"></i>  REGISTER</button></a>
+        </div>
+
+        <!--footer-->
+        <footer class="footer"> 
+            <div class="container ">
+                <p class="text-light pt-1">A Product Of AppBakerz</p>
+            </div>
+        </footer>
     </body>
