@@ -37,3 +37,39 @@
     color: white;
     background-color: #088a49;
 }
+
+/* transacton styling */
+.select-style
+{
+    border: none;
+    border-bottom: 1px solid rgb(165, 160, 160);
+    width: 38%;   
+}
+.bottom-style
+{
+    border: none;
+    border-bottom: 1px solid grey;
+    width: 78%;
+    margin-top: 15%;
+}
+.filter-style
+{
+    border: none;
+    border-bottom: 1px solid grey;
+    width: 78%;
+}
+#modal-section
+{
+    background-color: #085E33 ;
+    color: white;
+}
+#btn-trans
+{
+    text-decoration: none;
+    color: white;
+}
+.modal-header
+{
+    background-color:#085E33 ;
+    color: white;
+}
