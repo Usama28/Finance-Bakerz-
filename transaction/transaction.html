@@ -21,7 +21,7 @@
             <div class="d-flex justify-content-between ">
                 <a href="../index.html"><img src="../images/logo.png" width="20%" class="px-2" ></a>
                 <p class="text-success " style="margin: 1% 5% 1% 5%;">
-                    Welcome <span class="font-weight-bold" >Usama Hussain  </span>
+                    Welcome <span class="font-weight-bold" id="mail-span"></span>
                     <img src="../images/avatar-png.png" width="30" ><span>  Logout</span>
                 </p>
             </div>
@@ -133,13 +133,13 @@
                                 <textarea id=""  class="form-control" id="inp-tag"></textarea>
                             </div>
                             <div class="py-1">
-                                <p id="modal-error" class="" ></p>
+                                <p id="modal-error"  ></p>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" onclick="return incomeResult()">Add</button>
+                    <button type="button" class="btn btn-success" onclick="return incomeResult()">Add Income</button>
                     </div>
                 </div>
             </div>
@@ -184,18 +184,51 @@
                                 <input type="file" name="img" accept="image/*" class="form-control">
                             </div>
                             <div class="py-2">
-                                <p id="modal-error" ></p>
+                                <p id="expense-error" ></p>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" onclick="return expenseResult()">Add</button>
+                    <button type="button" class="btn btn-success" onclick="return expenseResult()">Add Expense</button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <section>
+            <div class="">
+                <table class="table table-hover border shadow">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </section>
 
     </body>
     <script src="transaction.js"></script>
