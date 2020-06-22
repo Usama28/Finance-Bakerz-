@@ -38,7 +38,32 @@ function incomeResult()
         setTimeout(()=>document.getElementById('income-error').remove(),2000)
         return false
     }
+    else
+    {
+        return incomeToList()
+    }
 }
+function incomeToList()
+{
+    
+    let incomeArray=[]
+    incomeArray.push(document.getElementById('date-tag').value)
+    incomeArray.push(document.getElementById('select-tag').value)
+    incomeArray.push(document.getElementById('amount-tag').value)
+
+    let bodyElements=document.getElementById('body-data')
+    let createRow=document.createElement('TR')
+    for(var i=0;i<incomeArray.length;i++)
+    {
+        let createData=document.createElement('TD')
+        createData.innerHTML=incomeArray[i]
+        createRow.appendChild(createData)  
+         
+    }
+    bodyElements.appendChild(createRow)
+
+}
+    
 //function for Expense modal
 function expenseResult()
 {
