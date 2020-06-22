@@ -15,6 +15,11 @@ function getResult()
     document.getElementById('mail-span').innerHTML=headMail
 
 }
+//logout function
+function logOut()
+{
+    window.location.replace("../index.html")
+}
 // function for icnome modal
 function incomeResult()
 {
@@ -54,7 +59,7 @@ function expenseResult()
     }
     else
     {
-        alert('43')
+       return alert('43')
     }
     
 }

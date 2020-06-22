@@ -78,13 +78,6 @@
     border: none;
     background: rgb(214, 214, 63);
     color: green;
+    padding: 2%;
 
-}
-#log-hover
-{
-    visibility: hidden;
-}
-#log-hover:hover
-{
-    visibility: visible;
 }
