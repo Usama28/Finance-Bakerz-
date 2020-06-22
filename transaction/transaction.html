@@ -22,7 +22,8 @@
                 <a href="../index.html"><img src="../images/logo.png" width="20%" class="px-2" ></a>
                 <p class="text-success " style="margin: 1% 5% 1% 5%;">
                     Welcome <span class="font-weight-bold" id="mail-span"></span>
-                    <img src="../images/avatar-png.png" width="30" ><span>  Logout</span>
+                    <img src="../images/avatar-png.png" width="30" >
+                    <button class="fa fa-sign-out px-2" id="log-out"><span id="log-hover">Log Out</span></button>
                 </p>
             </div>
         </section>
@@ -100,9 +101,9 @@
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Amount</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -166,7 +167,7 @@
                                 <textarea  class="form-control" id="desc-tag"></textarea>
                             </div>
                             <div class="py-1">
-                                <p id="modal-error"  ></p>
+                                <p id="income-error"  ></p>
                             </div>
                         </form>
                     </div>
