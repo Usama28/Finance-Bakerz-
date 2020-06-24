@@ -79,5 +79,10 @@
     background: rgb(214, 214, 63);
     color: green;
     padding: 2%;
-
+}
+#income-icon
+{
+    color: green;
+    padding: 17% 0% 0% 35%;
+    font-size: 22px;
 }

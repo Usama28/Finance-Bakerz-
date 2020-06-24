@@ -47,25 +47,30 @@ function incomeToList()
 {
     let rightIcon=document.createElement('I')
     rightIcon.className="fa fa-arrow-right"
-    console.log(rightIcon)
-    document.write(rightIcon)
+    
+    let upwardIcon=document.createElement('I')
+    upwardIcon.className="fa fa-arrow-up" 
+
+    rightIcon.id='income-icon'
+    upwardIcon.id='income-icon'
     
     let incomeArray=[]
-    incomeArray.push(rightIcon)
+
     incomeArray.push(document.getElementById('date-tag').value)
     incomeArray.push(document.getElementById('select-tag').value)
     incomeArray.push( 'RS '+ document.getElementById('amount-tag').value)
-    incomeArray.push(upwardIcon)
 
     let bodyElements=document.getElementById('body-data')
     let createRow=document.createElement('TR')
+    createRow.appendChild(rightIcon)
+
     for(var i=0;i<incomeArray.length;i++)
     {
         let createData=document.createElement('TD')
         createData.innerHTML=incomeArray[i]
         createRow.appendChild(createData)  
-         console.log(createRow)
     }
+    createRow.appendChild(upwardIcon)
     bodyElements.appendChild(createRow)
 
 }
