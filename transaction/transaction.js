@@ -48,8 +48,7 @@ function incomeToList()
     let rightIcon=document.createElement('I')
     rightIcon.className="fa fa-arrow-right"
     console.log(rightIcon)
-    let upwardIcon=document.createElement('I')
-    upwardIcon.className="fa fa-arrow-up"
+    document.write(rightIcon)
     
     let incomeArray=[]
     incomeArray.push(rightIcon)
@@ -65,7 +64,7 @@ function incomeToList()
         let createData=document.createElement('TD')
         createData.innerHTML=incomeArray[i]
         createRow.appendChild(createData)  
-         
+         console.log(createRow)
     }
     bodyElements.appendChild(createRow)
 
