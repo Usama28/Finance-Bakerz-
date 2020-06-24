@@ -18,7 +18,7 @@ function getResult()
 //logout function
 function logOut()
 {
-    window.location.replace("../index.html")
+    window.location.replace("../sign up login/login.html")
 }
 // function for icnome modal
 function incomeResult()
@@ -45,11 +45,18 @@ function incomeResult()
 }
 function incomeToList()
 {
+    let rightIcon=document.createElement('I')
+    rightIcon.className="fa fa-arrow-right"
+    console.log(rightIcon)
+    let upwardIcon=document.createElement('I')
+    upwardIcon.className="fa fa-arrow-up"
     
     let incomeArray=[]
+    incomeArray.push(rightIcon)
     incomeArray.push(document.getElementById('date-tag').value)
     incomeArray.push(document.getElementById('select-tag').value)
-    incomeArray.push(document.getElementById('amount-tag').value)
+    incomeArray.push( 'RS '+ document.getElementById('amount-tag').value)
+    incomeArray.push(upwardIcon)
 
     let bodyElements=document.getElementById('body-data')
     let createRow=document.createElement('TR')
@@ -82,9 +89,6 @@ function expenseResult()
         setTimeout(()=>document.getElementById('expense-error').remove(),2000)
         return false
     }
-    else
-    {
-       return alert('43')
-    }
+   
     
 }
