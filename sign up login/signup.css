@@ -63,7 +63,12 @@
     border: none;
     border-bottom: 1px solid grey;
     width: 25%;
-    
+}
+#file-id
+{
+    background-color: #085E33;
+    color: white;
+    padding: 2% 0% 8% 2%;
 }
 #modal-section
 {
