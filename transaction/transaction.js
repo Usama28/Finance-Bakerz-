@@ -101,7 +101,8 @@ function clearIncomeFileds()
     document.getElementById('date-tag').value=''
     document.getElementById('select-tag').value=''
     document.getElementById('amount-tag').value=''
-    document.getElementById('desc-tag').value=''
+    document.getElementById('desc-tag').value=''    
+
 }
     
 //function for Expense modal
