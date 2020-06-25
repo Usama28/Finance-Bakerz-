@@ -94,14 +94,14 @@
         <section>
             <div class="container">
                 <div class=" mt-5">
-                    <select id="type-id" >
+                    <select class="filter" >
                         <p></p>
                         <option value="">Filter by account</option>
                     </select>
                 </div>
                 <div class="mt-4">
                     <p style="color: grey;">Filter By Type</p>
-                    <select id="typed-id" oninput="display()">
+                    <select class="filter" id="typed-id" oninput="display()">
                         <option value=""></option>
                         <option value="income">Income</option>
                         <option value="Expense">Expense</option>
@@ -234,7 +234,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" onclick="return expenseResult()">Add Expense</button>
+                    <button type="button" class="btn btn-success" onclick="return expenseResult()" id="expense-btn">Add Expense</button>
                     </div>
                 </div>
             </div>

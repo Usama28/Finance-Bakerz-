@@ -17,26 +17,30 @@ function getResult()
     
 
 }
-//function to display income / expense table seperately
-function display()
-{
-    let filterElement= document.getElementById('typed-id').value
-    console.log(filterElement)
-}
+
 //logout function
 function logOut()
 {
     window.location.replace("../sign up login/login.html")
 }
 
-//filter function
+//function to display income / expense table seperately
 function display()
 {
-    document.getElementById('typed-id')
-    document.getElementById('typed-id').value
-    document.getElementById('typed-id').innerHTML
-    document.getElementById('typed-id').nodeName
-    document.getElementById('typed-id').NodeFilter
+    var incomFilterArray=[]
+    var getFilter=document.getElementById('typed-id').value
+    var incomeTR=document.getElementById('income-row')
+    console.log(incomeTR)
+    if(getFilter=='Expense')
+    {
+        incomFilterArray.push(incomeTR)
+        console.log(incomFilterArray)
+        incomFilterArray.style.display='none'
+    }
+    else
+    {
+        incomFilterArray.style.display='block' 
+    }
 }
 // function for icnome modal
 function incomeResult()
@@ -85,6 +89,7 @@ function incomeToList()
 
     let bodyElements=document.getElementById('body-data')
     let createRow=document.createElement('TR')
+    createRow.id='income-row'
     let iconTD1=document.createElement('TD')
     iconTD1.appendChild(rightIcon)
     createRow.appendChild(iconTD1)
@@ -106,7 +111,9 @@ function clearIncomeFileds()
     document.getElementById('date-tag').value=''
     document.getElementById('select-tag').value=''
     document.getElementById('amount-tag').value=''
-    document.getElementById('desc-tag').value=''    
+    document.getElementById('desc-tag').value=''  
+    
+    document.getElementById('income-btn').setAttribute('data-dismiss','modal')
 
 }
     
@@ -178,5 +185,7 @@ function clearExpenseFields()
     document.getElementById('select2-tag').value=''
     document.getElementById('amount2-tag').value=''
     document.getElementById('desc2-tag').value=''
+
+    document.getElementById('expense-btn').setAttribute('data-dismiss','modal')
 
 }
