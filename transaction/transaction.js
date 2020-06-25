@@ -30,8 +30,13 @@ function logOut()
 }
 
 //filter function
+function display()
 {
-
+    document.getElementById('typed-id')
+    document.getElementById('typed-id').value
+    document.getElementById('typed-id').innerHTML
+    document.getElementById('typed-id').nodeName
+    document.getElementById('typed-id').NodeFilter
 }
 // function for icnome modal
 function incomeResult()
