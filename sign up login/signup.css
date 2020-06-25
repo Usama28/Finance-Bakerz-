@@ -56,7 +56,14 @@
 {
     border: none;
     border-bottom: 1px solid grey;
-    width: 78%;
+    width: 80%;
+}
+#typed-id
+{
+    border: none;
+    border-bottom: 1px solid grey;
+    width: 25%;
+    
 }
 #modal-section
 {

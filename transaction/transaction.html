@@ -35,8 +35,8 @@
         <section>
             <div class="container" >
                 <div class="row mt-5" style="color: grey;">
-                    <div class="col-md-3 my-2">
-                        <div class="container" >
+                    <div class="col-md-4 ">
+                        <div class="" >
                             <p>Filter By</p>
                             <select id="filter-id" class="filter-style">
                                 <option value="">Today</option>
@@ -47,7 +47,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3 my-2">
+                    <div class="col-md-4">
                         <p>Date From</p>
                         <select id="" class="select-style">
                             <option value="0">Jan</option>
@@ -65,7 +65,7 @@
                                 <option value="2017">2017</option>
                         </select>
                     </div>
-                    <div class="col-md-3 my-2">
+                    <div class="col-md-4 ">
                         <div>
                             <p>Date To</p>
                             <select id="select-month" class="select-style">
@@ -86,19 +86,27 @@
                         </div>
                         
                     </div>
-                    <div class="col-md-3 my-2">
-                        <select id="account-id" class="bottom-style">
-                            <p></p>
-                            <option value="">Filter by account</option>
-                        </select>
-                    </div>
                 </div>
             </div>
         </section>
 
+        <!--filter 2nd section-->
         <section>
             <div class="container">
-
+                <div class=" mt-5">
+                    <select id="type-id" >
+                        <p></p>
+                        <option value="">Filter by account</option>
+                    </select>
+                </div>
+                <div class="mt-4">
+                    <p style="color: grey;">Filter By Type</p>
+                    <select id="typed-id" oninput="display()">
+                        <option value=""></option>
+                        <option value="income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>    
+                </div>   
             </div>
         </section>
         
@@ -168,8 +176,8 @@
                                 <label >Description</label>
                                 <textarea  class="form-control" id="desc-tag"></textarea>
                             </div>
-                            <div class="py-1">
-                                <p id="income-error"  ></p>
+                            <div id="error-ID1">
+                                
                             </div>
                         </form>
                     </div>
@@ -219,8 +227,8 @@
                                 <label >Upload File / Image</label>
                                 <input type="file" name="img" accept="image/*" class="form-control">
                             </div>
-                            <div class="py-2">
-                                <p id="expense-error" ></p>
+                            <div id="error-ID2">
+                              
                             </div>
                         </form>
                     </div>

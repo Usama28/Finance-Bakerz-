@@ -14,11 +14,24 @@ function getResult()
     var headMail=localStorage.getItem('Mail')
     document.getElementById('mail-span').innerHTML=headMail
 
+    
+
+}
+//function to display income / expense table seperately
+function display()
+{
+    let filterElement= document.getElementById('typed-id').value
+    console.log(filterElement)
 }
 //logout function
 function logOut()
 {
     window.location.replace("../sign up login/login.html")
+}
+
+//filter function
+{
+
 }
 // function for icnome modal
 function incomeResult()
@@ -31,11 +44,16 @@ function incomeResult()
 
     if(getAmount=='' || getDate=="" || getSelect=="" || getDescription=="")
     {
-        document.getElementById('income-error').innerHTML='Fill All Fields'
-        document.getElementById('income-error').style.backgroundColor='red'
-        document.getElementById('income-error').style.color='white'
-        document.getElementById('income-error').style.padding='2%'
-        setTimeout(()=>document.getElementById('income-error').remove(),2000)
+        let showIncomeError=document.getElementById('error-ID1')
+        let getError=document.createElement('P')
+       
+        getError.id='income-error'
+        getError.innerHTML='Fill All Fields'
+        getError.style.backgroundColor='red'
+        getError.style.color='white'
+        getError.style.padding='2%'
+        showIncomeError.appendChild(getError)
+        setTimeout(()=>getError.remove(),2000)
         return false
     }
     else
@@ -97,11 +115,16 @@ function expenseResult()
 
     if(getAmount=='' || getDate=="" || getSelect=="" || getDescription=="")
     {
-        document.getElementById('expense-error').innerHTML='Fill All Fields'
-        document.getElementById('expense-error').style.backgroundColor='red'
-        document.getElementById('expense-error').style.color='white'
-        document.getElementById('expense-error').style.padding='2%'
-        setTimeout(()=>document.getElementById('expense-error').remove(),2000)
+        let showExpenseError=document.getElementById('error-ID2')
+        let getError=document.createElement('P')
+       
+        getError.id='income-error'
+        getError.innerHTML='Fill All Fields'
+        getError.style.backgroundColor='red'
+        getError.style.color='white'
+        getError.style.padding='2%'
+        showExpenseError.appendChild(getError)
+        setTimeout(()=>getError.remove(),2000)
         return false
     }
    else
