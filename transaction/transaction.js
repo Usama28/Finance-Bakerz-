@@ -29,17 +29,27 @@ function display()
 {
     var incomFilterArray=[]
     var getFilter=document.getElementById('typed-id').value
-    var incomeTR=document.getElementById('income-row')
-    console.log(incomeTR)
-    if(getFilter=='Expense')
+    var incomeTR=document.getElementsByTagName('tr')
+    for (var i=0;i<incomeTR.length;i++)
     {
-        incomFilterArray.push(incomeTR)
-        console.log(incomFilterArray)
-        incomFilterArray.style.display='none'
-    }
-    else
-    {
-        incomFilterArray.style.display='block' 
+        if(getFilter=='Expense')
+        {
+            
+            if(incomeTR[i].id=='income-row')
+            {
+                incomeTR[i].style.display='none'
+            }
+            else
+            {
+                incomeTR[i].style.display='block' 
+            }
+            
+        }
+        else
+        {
+            incomeTR[i].style.display='block'
+        }
+        
     }
 }
 // function for icnome modal
