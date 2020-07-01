@@ -2,7 +2,35 @@
 <html lang="en">
     <head>
         <title>LOGIN</title>
-        <!-- CSS only -->
+        <!--firebase-->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAxQMWUM5N2il5VFHmb9763a-HPKjbYmxk",
+            authDomain: "financeapp-3defb.firebaseapp.com",
+            databaseURL: "https://financeapp-3defb.firebaseio.com",
+            projectId: "financeapp-3defb",
+            storageBucket: "financeapp-3defb.appspot.com",
+            messagingSenderId: "815963685880",
+            appId: "1:815963685880:web:7627a39481f2ff2cb1cc0d",
+            measurementId: "G-6H9L6R4FHZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+      
+      <!-- CSS only -->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="signup.css">
@@ -23,27 +51,42 @@
     <script>
         function loginForm()
         {
-            var mail=document.getElementById('email').value
-            var pass=document.getElementById('password').value
+            var getMail=document.getElementById('email').value
+            var getPassword=document.getElementById('password').value
 
-            var storageMail=localStorage.getItem('Mail')
-            var storagePassword=localStorage.getItem('Password')
-
-            if(mail=='' || pass=='')
+            firebase.auth().signInWithEmailAndPassword(getMail, getPassword)
+            .then(function(user)
             {
-                document.getElementById('error-msg').innerHTML='Fill All Fields'
-                document.querySelector('#error-msg').style.color='red';
-                setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
-                return false
-            }
-
-            else if(mail!=storageMail || pass!=storagePassword)
+                alert('sexful')
+                location.href="../transaction/transaction.html"
+            })
+            .catch(function(error) 
             {
-                document.getElementById('error-msg').innerHTML='Incorrect Mail / Password'
-                document.querySelector('#error-msg').style.color='red';
-                setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
-                return false
-            }
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+                console.log(error)
+            });
+
+            // var storageMail=localStorage.getItem('Mail')
+            // var storagePassword=localStorage.getItem('Password')
+
+            // if(mail=='' || pass=='')
+            // {
+            //     document.getElementById('error-msg').innerHTML='Fill All Fields'
+            //     document.querySelector('#error-msg').style.color='red';
+            //     setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
+            //     return false
+            // }
+
+            // else if(mail!=storageMail || pass!=storagePassword)
+            // {
+            //     document.getElementById('error-msg').innerHTML='Incorrect Mail / Password'
+            //     document.querySelector('#error-msg').style.color='red';
+            //     setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
+            //     return false
+            // }
            
         }
     </script>
@@ -60,7 +103,7 @@
 
         <!--form section-->
         <section class="row h-100 justify-content-center align-items-center">
-            <form action="../transaction/transaction.html" id="login-form">
+            <div id="login-form">
                 <div class="form-control-group">
                     <img src="../images/logo-withText.png" style="width: 165px; margin-bottom: 13%;"> 
                 </div>
@@ -74,12 +117,12 @@
                     </div>
                     <div>
                         <button class="btn btn-warning text-light mt-3" 
-                        style="padding: 5% 29% 5% 33%;" onclick="return loginForm()">
+                        style="padding: 5% 29% 5% 33%;" onclick="loginForm()">
                             <i class="fa fa-unlock-alt px-1" ></i>LOGIN
                     </div>
                     
                 </div>
-            </form>
+            </div>
             
         </section>
         <div class="row h-100 justify-content-center align-items-center py-3">

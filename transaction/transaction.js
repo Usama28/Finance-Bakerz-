@@ -29,25 +29,30 @@ function display()
 {
     var incomFilterArray=[]
     var getFilter=document.getElementById('typed-id').value
-    incomFilterArray.push(document.getElementsByTagName('tr'))
-    console.log(incomFilterArray)
-    for (var i=0;i<incomFilterArray.length;i++)
-    
-    {
-        if(getFilter=='Expense')
-        {
-            if(incomFilterArray[i].id=='income-row')
-            {
+    var getTR=document.getElementsByTagName('tr')
+    console.log(getTR)
 
-                incomFilterArray[i].style.display='none'
+        for (var i=0;i<getTR.length;i++)
+        {
+            if(getTR[i].id=='income-row')
+            {
+                if(getFilter=='Expense')
+                {
+                    incomFilterArray.push(getTR[i])
+                    getTR[i].style.display='none'
+                }
+                else
+                {
+                    getTR[i].style.display='block'
+                }      
             }
             else
             {
-                incomFilterArray[i].style.display='block'
+                getTR[i].style.display='block'
             }
-        }
-       
+        
     }
+    console.log(incomFilterArray)        
 }
 // function for icnome modal
 function incomeResult()

@@ -12,11 +12,16 @@
 {
     border: none;
     border-bottom: 1px solid brown;
+    width: 110%;
+}
+#submit-btn
+{
+    width: 111%;
 }
 #form-id
 {
     border: 1px solid transparent;
-    padding: 10% 6% 7% 6%;
+    padding: 10% 8% 7% 6%;
     margin: -12% 5% 5% 5%;
     box-shadow: 0px 0px 17px -5px grey;
 }
@@ -32,11 +37,12 @@
     text-align: center;
  }
 
-#error-id
+/* #error-id
 {
     color: white;
-    background-color: #088a49;
-}
+    background-color: rgb(243, 51, 51);
+    padding: 2%;
+} */
 
 /* transacton styling */
 .select-style
