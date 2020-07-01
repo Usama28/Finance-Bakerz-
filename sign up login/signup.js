@@ -23,14 +23,17 @@ function submitForm()
         var errorMessage = error.message;
         // ...
         
-        var getError=document.createElement('SPAN')
+        var getError=document.createElement('div')
         getError.innerHTML=error
         getError.style.color='white'
         getError.style.backgroundColor='red'
         getError.style.padding='2%'
         getError.style.width='111%'
-        document.getElementById('error-id').appendChild(getError)
-       setTimeout(()=>getError.remove(),2000)
+        var getMain=document.getElementById('main-form')
+        var regBtn=document.getElementById('submit-btn')
+        getMain.insertBefore(getError,regBtn)
+        // document.getElementById('error-id').appendChild(getError)
+    //    setTimeout(()=>getError.remove(),2000)
       });
 
   
