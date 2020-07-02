@@ -66,6 +66,14 @@
             var errorMessage = error.message;
             // ...
                 console.log(error)
+                let getError=document.createElement('div')
+                getError.innerHTML=error
+                getError.style.color='white'
+                getError.style.backgroundColor='red'
+                getError.style.padding='2%'
+                getError.style.width='111%'
+                document.getElementById('error-id').appendChild(getError)
+                setTimeout(()=>getError.remove(),2000)
             });
 
             // var storageMail=localStorage.getItem('Mail')
@@ -110,10 +118,10 @@
                     
                     <div>
                         <div class="form-control-group py-4">
-                            <input type="text" placeholder="Email" class="form-bottom"  id="mail-id" >
+                            <input type="text" placeholder="Email" class="form-bottom"  id="email" >
                         </div>
                         <div class="form-control-group py-4">
-                            <input type="password" placeholder="Password" class="form-bottom" id="password-id" >
+                            <input type="password" placeholder="Password" class="form-bottom" id="password" >
                         </div>
                         <div id="error-id">
 

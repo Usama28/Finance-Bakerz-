@@ -23,7 +23,7 @@ function submitForm()
         var errorMessage = error.message;
         // ...
         
-        var getError=document.createElement('div')
+        let getError=document.createElement('div')
         getError.innerHTML=error
         getError.style.color='white'
         getError.style.backgroundColor='red'
