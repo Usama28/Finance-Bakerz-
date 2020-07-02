@@ -13,7 +13,7 @@ function submitForm()
     firebase.auth().createUserWithEmailAndPassword(getMail, getPassword)
     .then(function(user)
     {
-        location.href="login.html"
+        window.location.replace('login.html')
     })
     .catch(function(error) 
     {
@@ -29,11 +29,8 @@ function submitForm()
         getError.style.backgroundColor='red'
         getError.style.padding='2%'
         getError.style.width='111%'
-        var getMain=document.getElementById('main-form')
-        var regBtn=document.getElementById('submit-btn')
-        getMain.insertBefore(getError,regBtn)
-        // document.getElementById('error-id').appendChild(getError)
-    //    setTimeout(()=>getError.remove(),2000)
+        document.getElementById('error-id').appendChild(getError)
+       setTimeout(()=>getError.remove(),2000)
       });
 
   

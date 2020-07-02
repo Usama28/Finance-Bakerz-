@@ -57,8 +57,7 @@
             firebase.auth().signInWithEmailAndPassword(getMail, getPassword)
             .then(function(user)
             {
-                alert('sexful')
-                location.href="../transaction/transaction.html"
+                window.location.replace('../transaction/transaction.html')
             })
             .catch(function(error) 
             {
@@ -102,33 +101,37 @@
         </section>
 
         <!--form section-->
-        <section class="row h-100 justify-content-center align-items-center">
-            <div id="login-form">
-                <div class="form-control-group">
-                    <img src="../images/logo-withText.png" style="width: 165px; margin-bottom: 13%;"> 
+        <section class=" container col-12 col-md-4">
+            <div class=" border shadow my-5">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <img src="../images/logo-withText.png" style="width: 35%;">
                 </div>
-                <div >
-                    <div class="form-control-group py-3 ">
-                        <input type="text" placeholder="Email" class="form-bottom"  id="email" >
-                    </div>
-                    <div class="form-control-group py-3">
-                        <input type="password" placeholder="Password" class="form-bottom" id="password" >
-                        <p id="error-msg" class="pt-3"></p>
-                    </div>
-                    <div>
-                        <button class="btn btn-warning text-light mt-3" 
-                        style="padding: 5% 29% 5% 33%;" onclick="loginForm()">
-                            <i class="fa fa-unlock-alt px-1" ></i>LOGIN
-                    </div>
+                <div class="row h-100 justify-content-center align-items-center" id="main-form">
                     
+                    <div>
+                        <div class="form-control-group py-4">
+                            <input type="text" placeholder="Email" class="form-bottom"  id="mail-id" >
+                        </div>
+                        <div class="form-control-group py-4">
+                            <input type="password" placeholder="Password" class="form-bottom" id="password-id" >
+                        </div>
+                        <div id="error-id">
+
+                        </div>
+                        
+                        <div class="form-control-group py-4">
+                            <button class="btn btn-warning text-light" id="login-btn" onclick="loginForm()"><i class="fa fa-unlock-alt"></i>  LOGIN</button>
+                        </div>
+                        <div class="form-control-group pt-2">
+                            <a href="signup.html"><button class="btn btn-success mb-5" id="submit-btn" ><i class="fa fa-user-plus"></i>  REGISTER</button></a>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
-            
         </section>
-        <div class="row h-100 justify-content-center align-items-center py-3">
-            <a href="signup.html"><button class="btn btn-success"  style="padding: 10px 51px 9px 32px; margin-top: -90%;">
-                <i class="fa fa-user-plus"></i>  REGISTER</button></a>
-        </div>
+
 
         <!--footer-->
         <footer class="footer"> 
