@@ -65,7 +65,8 @@
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
-                console.log(error)
+                console.log(errorCode)
+                console.log(errorMessage)
                 let getError=document.createElement('div')
                 getError.innerHTML=error
                 getError.style.color='white'
@@ -75,25 +76,6 @@
                 document.getElementById('error-id').appendChild(getError)
                 setTimeout(()=>getError.remove(),2000)
             });
-
-            // var storageMail=localStorage.getItem('Mail')
-            // var storagePassword=localStorage.getItem('Password')
-
-            // if(mail=='' || pass=='')
-            // {
-            //     document.getElementById('error-msg').innerHTML='Fill All Fields'
-            //     document.querySelector('#error-msg').style.color='red';
-            //     setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
-            //     return false
-            // }
-
-            // else if(mail!=storageMail || pass!=storagePassword)
-            // {
-            //     document.getElementById('error-msg').innerHTML='Incorrect Mail / Password'
-            //     document.querySelector('#error-msg').style.color='red';
-            //     setTimeout(()=>document.querySelector('#error-msg').remove(),2000)
-            //     return false
-            // }
            
         }
     </script>

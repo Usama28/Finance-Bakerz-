@@ -1,5 +1,5 @@
 console.log(firebase)
-      
+console.log('firesotr',firebase.firestore)
 function submitForm()
 { 
     var getUser=document.querySelector('#name-id').value
