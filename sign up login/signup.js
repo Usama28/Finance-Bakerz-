@@ -2,6 +2,7 @@ console.log(firebase)
 console.log('firesotr',firebase.firestore)
 function submitForm()
 { 
+    var getPlan=document.getElementById('select-plan').value
     var getUser=document.querySelector('#name-id').value
     var getMail=document.querySelector('#mail-id').value
     var getPassword=document.querySelector('#password-id').value
@@ -13,6 +14,12 @@ function submitForm()
     firebase.auth().createUserWithEmailAndPassword(getMail, getPassword)
     .then(function(user)
     {
+        firebase.firestore().collection('users').add
+        {
+            userName:getUser
+            email:getMail
+            selectedPlan:getPlan
+        }
         window.location.replace('login.html')
     })
     .catch(function(error) 
