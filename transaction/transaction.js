@@ -1,4 +1,5 @@
 
+getTransaction()
 getResult()
 function getResult()
 {
@@ -30,7 +31,7 @@ function incomeResult()
 {
     
     var getAmount=document.getElementById('amount-tag').value
-    var getDate=document.getElementById('date-tag').valueAsDate
+    var getDate=document.getElementById('date-tag').value
     var getSelect=document.getElementById('select-tag').value
     var getDescription=document.getElementById('desc-tag').value
 
@@ -62,7 +63,9 @@ function incomeResult()
         ).then(function()
         {
             // alert('income successful')
+            getTransaction()
             clearincome()
+           
             $('#incomeModal').modal('hide')        
         })
      
@@ -78,6 +81,40 @@ function incomeResult()
     }
 }
 //display income modal
+
+function getTransaction()
+{
+    // firebase.firestore().collection('transaction').doc(id).get().then(function(snapshot) {snapshot.data()} ye km tb krngy jb hamy sir aik data/element chaye ho
+    firebase.firestore().collection('transaction').get().then(function(snapshot)
+    {                                                               //transaction k andr 3,4 item h is lye loop lgana lazmi ha
+        snapshot.forEach(function(docs)
+        {
+            console.log(docs.data())
+            const data=docs.data()    
+
+            const bodyTable=document.getElementById('body-table')
+            // bodyTable.innerHTML=''
+
+            const row =document.createElement('TR')
+            const type =document.createElement('TD')
+            const date =document.createElement('TD')
+            const category =document.createElement('TD')
+            const amount =document.createElement('TD')
+
+            type.innerHTML=data.type
+            date.innerHTML=data.Date      //data . k bad wo name likhy gye hai jis name se firebas eme save kraye hi value
+            category.innerHTML=data.Category
+            amount.innerHTML=data.Amount
+
+            row.appendChild(type)
+            row.appendChild(date)
+            row.appendChild(category)
+            row.appendChild(amount)
+            bodyTable.appendChild(row)
+
+        })
+    })
+}
     
 //function to put expense data to database
 function expenseResult()
@@ -128,17 +165,7 @@ function expenseResult()
         }
    }    
 }
-getTransaction()
-function getTransaction()
-{
-    firebase.firestore().collection('transaction').get().then(function(snapshot)
-    {
-        snapshot.forEach(function(docs)
-        {
-            console.log(docs.data())
-        })
-    })
-}
+
 
 // function expenseToList()
 // {
