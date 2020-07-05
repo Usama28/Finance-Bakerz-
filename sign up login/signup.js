@@ -14,7 +14,7 @@ function submitForm()
     firebase.auth().createUserWithEmailAndPassword(getMail, getPassword)
     .then(function(userResponse){
         console.log(userResponse)
-        const userId = userResponse.user.uid
+        const userId = userResponse.user.uid    //user id sign up krty hwe jo generate hui
 
         /*
             1) .add({}) (generates unique ID for the document)
@@ -22,9 +22,10 @@ function submitForm()
         */
 
         // firebase.firestore().collection('users').add({
-        firebase.firestore().collection('users').doc(userId).set(
-            {
-                Username:getUser,
+        firebase.firestore().collection('users').doc(userId).set(        //set ==>data firebase me bhjny k lye
+            {                                                            
+                                                            //get==>firesbase se data access krny k lye 
+                Username:getUser,                           //get k bad .then k function me aik variable declare phr {varaiable.data()} <==to get data from firebase
                 Plan:getPlan,
                 Email:getMail
             }).then(function() 

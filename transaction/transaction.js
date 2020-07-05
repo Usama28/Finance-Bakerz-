@@ -24,36 +24,7 @@ function logOut()
     window.location.replace("../sign up login/login.html")
 }
 
-//function to display income / expense table seperately
-function display()
-{
-    var incomFilterArray=[]
-    var getFilter=document.getElementById('typed-id').value
-    var getTR=document.getElementsByTagName('tr')
-    console.log(getTR)
 
-        for (var i=0;i<getTR.length;i++)
-        {
-            if(getTR[i].id=='income-row')
-            {
-                if(getFilter=='Expense')
-                {
-                    incomFilterArray.push(getTR[i])
-                    getTR[i].style.display='none'
-                }
-                else
-                {
-                    getTR[i].style.display='block'
-                }      
-            }
-            else
-            {
-                getTR[i].style.display='block'
-            }
-        
-    }
-    console.log(incomFilterArray)        
-}
 // function for icnome modal
 function incomeResult()
 {
@@ -88,16 +59,31 @@ function incomeResult()
            Description: getDescription,
            type : 'income'
         }
-    )
-        return incomeToList()
+        ).then(function()
+        {
+            // alert('income successful')
+            clearincome()
+            $('#incomeModal').modal('hide')        
+        })
+     
+     function clearincome()
+        {
+            var getAmount=document.getElementById('amount-tag').value=''
+            var getDate=document.getElementById('date-tag').value=''
+            var getSelect=document.getElementById('select-tag').value=''
+            var getDescription=document.getElementById('desc-tag').value=''
+            
+        }
+        // incomeToList()
     }
 }
 
+//function to clear all field 
+
+//display income modal
 function incomeToList()
 {
     
-
-    //display code
     let rightIcon=document.createElement('I')
     rightIcon.className="fa fa-arrow-right"
     
@@ -106,41 +92,6 @@ function incomeToList()
 
     rightIcon.id='income-icon'
     upwardIcon.id='income-icon'
-    
-    let incomeArray=[]
-    incomeArray.push(document.getElementById('date-tag').value)
-    incomeArray.push(document.getElementById('select-tag').value)
-    incomeArray.push( '<span style="font-weight:bold">RS</span> '+ document.getElementById('amount-tag').value)
-
-    let bodyElements=document.getElementById('body-data')
-    let createRow=document.createElement('TR')
-    createRow.id='income-row'
-    let iconTD1=document.createElement('TD')
-    iconTD1.appendChild(rightIcon)
-    createRow.appendChild(iconTD1)
-
-    for(var i=0;i<incomeArray.length;i++)
-    {
-        let createData=document.createElement('TD')
-        createData.innerHTML=incomeArray[i] 
-        createRow.appendChild(createData)
-    }
-    let iconTD2=document.createElement('TD')
-    iconTD2.appendChild(upwardIcon)
-    createRow.appendChild(iconTD2)
-    bodyElements.appendChild(createRow)
-
-    
-    clearIncomeFileds()
-}
-function clearIncomeFileds()
-{
-    document.getElementById('date-tag').value=''
-    document.getElementById('select-tag').value=''
-    document.getElementById('amount-tag').value=''
-    document.getElementById('desc-tag').value=''  
-    
-    document.getElementById('income-btn').setAttribute('data-dismiss','modal')
 
 }
     
