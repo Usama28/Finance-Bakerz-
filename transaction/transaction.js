@@ -121,16 +121,27 @@ function expenseResult()
    else
    {
        //firebase code
-    firebase.firestore().collection('transaction').add(
+        firebase.firestore().collection('transaction').add(
+            {
+            Amount: getAmount,
+            Date: getDate,
+            Category: getSelect,
+            Description: getDescription,
+            type : 'Expense'
+            }
+        ).then(function()
         {
-           Amount: getAmount,
-           Date: getDate,
-           Category: getSelect,
-           Description: getDescription,
-           type : 'Expense'
+            clearExpense()
+            $('#expenseModal').modal('hide')
+        })
+       
+        function clearExpense()
+        {
+            document.getElementById('date2-tag').value=''
+            document.getElementById('select2-tag').value=''
+            document.getElementById('amount2-tag').value=''
+            document.getElementById('desc2-tag').value=''
         }
-    )
-       return expenseToList()
    }    
 }
 function expenseToList()
@@ -144,36 +155,4 @@ function expenseToList()
     leftIcon.id='expense-icon'
     downIcon.id='expense-icon'
     
-    let expenseArray=[]
-    expenseArray.push(document.getElementById('date2-tag').value)
-    expenseArray.push(document.getElementById('select2-tag').value)
-    expenseArray.push('<span style="font-weight:bold">RS</span> '+document.getElementById('amount2-tag').value)
-
-    let bodyElements=document.getElementById('body-data')
-    let createExpenseRow=document.createElement('TR')
-    let expenseTD1=document.createElement('TD')
-    expenseTD1.appendChild(leftIcon)
-    createExpenseRow.appendChild(expenseTD1)
-
-    for(var j=0;j<expenseArray.length;j++)
-    {
-        let expenseData=document.createElement('TD')
-        expenseData.innerHTML=expenseArray[j]
-        createExpenseRow.appendChild(expenseData)
-    }
-    let expenseTD2=document.createElement('TD')
-    expenseTD2.appendChild(downIcon)
-    createExpenseRow.appendChild(expenseTD2)
-    bodyElements.appendChild(createExpenseRow)
-    clearExpenseFields()
-}
-function clearExpenseFields()
-{
-    document.getElementById('date2-tag').value=''
-    document.getElementById('select2-tag').value=''
-    document.getElementById('amount2-tag').value=''
-    document.getElementById('desc2-tag').value=''
-
-    document.getElementById('expense-btn').setAttribute('data-dismiss','modal')
-
 }
