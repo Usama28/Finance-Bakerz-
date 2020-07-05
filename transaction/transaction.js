@@ -63,9 +63,8 @@ function incomeResult()
         ).then(function()
         {
             // alert('income successful')
-            getTransaction()
             clearincome()
-           
+            getTransaction()
             $('#incomeModal').modal('hide')        
         })
      
@@ -84,16 +83,15 @@ function incomeResult()
 
 function getTransaction()
 {
+    const bodyTable=document.getElementsByTagName('tbody')[0]
+    bodyTable.innerHTML=''
     // firebase.firestore().collection('transaction').doc(id).get().then(function(snapshot) {snapshot.data()} ye km tb krngy jb hamy sir aik data/element chaye ho
     firebase.firestore().collection('transaction').get().then(function(snapshot)
     {                                                               //transaction k andr 3,4 item h is lye loop lgana lazmi ha
         snapshot.forEach(function(docs)
         {
             console.log(docs.data())
-            const data=docs.data()    
-
-            const bodyTable=document.getElementById('body-table')
-            // bodyTable.innerHTML=''
+            const data=docs.data()   
 
             const row =document.createElement('TR')
             const type =document.createElement('TD')
