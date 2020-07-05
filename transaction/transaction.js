@@ -14,7 +14,7 @@ function getResult()
     var headMail=localStorage.getItem('Mail')
     document.getElementById('mail-span').innerHTML=headMail
 
-    
+    console.log(firebase.firestore)
 
 }
 
@@ -58,15 +58,15 @@ function display()
 function incomeResult()
 {
     
-    let getAmount=document.getElementById('amount-tag').value
-    let getDate=document.getElementById('date-tag').value
-    let getSelect=document.getElementById('select-tag').value
-    let getDescription=document.getElementById('desc-tag').value
+    var getAmount=document.getElementById('amount-tag').value
+    var getDate=document.getElementById('date-tag').valueAsDate
+    var getSelect=document.getElementById('select-tag').value
+    var getDescription=document.getElementById('desc-tag').value
 
     if(getAmount=='' || getDate=="" || getSelect=="" || getDescription=="")
     {
-        let showIncomeError=document.getElementById('error-ID1')
-        let getError=document.createElement('P')
+        var showIncomeError=document.getElementById('error-ID1')
+        var getError=document.createElement('P')
        
         getError.id='income-error'
         getError.innerHTML='Fill All Fields'
@@ -79,12 +79,25 @@ function incomeResult()
     }
     else
     {
+         //firebase code
+     firebase.firestore().collection('transaction').add(
+        {
+           Amount: getAmount,
+           Date: getDate,
+           Category: getSelect,
+           Description: getDescription,
+           type : 'income'
+        }
+    )
         return incomeToList()
     }
 }
 
 function incomeToList()
 {
+    
+
+    //display code
     let rightIcon=document.createElement('I')
     rightIcon.className="fa fa-arrow-right"
     
@@ -116,6 +129,8 @@ function incomeToList()
     iconTD2.appendChild(upwardIcon)
     createRow.appendChild(iconTD2)
     bodyElements.appendChild(createRow)
+
+    
     clearIncomeFileds()
 }
 function clearIncomeFileds()
@@ -154,6 +169,16 @@ function expenseResult()
     }
    else
    {
+       //firebase code
+    firebase.firestore().collection('transaction').add(
+        {
+           Amount: getAmount,
+           Date: getDate,
+           Category: getSelect,
+           Description: getDescription,
+           type : 'Expense'
+        }
+    )
        return expenseToList()
    }    
 }

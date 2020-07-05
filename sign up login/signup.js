@@ -3,24 +3,41 @@ console.log('firesotr',firebase.firestore)
 function submitForm()
 { 
     var getPlan=document.getElementById('select-plan').value
-    var getUser=document.querySelector('#name-id').value
-    var getMail=document.querySelector('#mail-id').value
-    var getPassword=document.querySelector('#password-id').value
-    var getConfirmPassword=document.querySelector('#confirm-id').value
+    var getUser=document.getElementById('name-id').value
+    var getMail=document.getElementById('mail-id').value
+    var getPassword=document.getElementById('password-id').value
+    var getConfirmPassword=document.getElementById('confirm-id').value
 
     console.log(getMail)
     console.log(getPassword)
 
     firebase.auth().createUserWithEmailAndPassword(getMail, getPassword)
-    .then(function(user)
-    {
-        firebase.firestore().collection('users').add
-        {
-            userName:getUser
-            email:getMail
-            selectedPlan:getPlan
-        }
-        window.location.replace('login.html')
+    .then(function(userResponse){
+        console.log(userResponse)
+        const userId = userResponse.user.uid
+
+        /*
+            1) .add({}) (generates unique ID for the document)
+            2) .doc(<id>).set({}) (you tell the ID to firebase)
+        */
+
+        // firebase.firestore().collection('users').add({
+        firebase.firestore().collection('users').doc(userId).set(
+            {
+                Username:getUser,
+                Plan:getPlan,
+                Email:getMail
+            }).then(function() 
+            {
+                alert("Successfully Registered!")
+                window.location.replace('login.html')
+
+            }).catch(function(error)
+            {
+                var errorMessage = error.message;
+                alert(errorMessage)
+            })
+        
     })
     .catch(function(error) 
     {
@@ -39,7 +56,5 @@ function submitForm()
         document.getElementById('error-id').appendChild(getError)
        setTimeout(()=>getError.remove(),2000)
       });
-
-  
 
 }
