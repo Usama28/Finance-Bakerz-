@@ -25,7 +25,7 @@ function logOut()
 }
 
 
-// function for icnome modal
+// function to put income data to database
 function incomeResult()
 {
     
@@ -66,6 +66,7 @@ function incomeResult()
             $('#incomeModal').modal('hide')        
         })
      
+    //function to clear all field 
      function clearincome()
         {
             var getAmount=document.getElementById('amount-tag').value=''
@@ -74,28 +75,11 @@ function incomeResult()
             var getDescription=document.getElementById('desc-tag').value=''
             
         }
-        // incomeToList()
     }
 }
-
-//function to clear all field 
-
 //display income modal
-function incomeToList()
-{
     
-    let rightIcon=document.createElement('I')
-    rightIcon.className="fa fa-arrow-right"
-    
-    let upwardIcon=document.createElement('I')
-    upwardIcon.className="fa fa-arrow-up" 
-
-    rightIcon.id='income-icon'
-    upwardIcon.id='income-icon'
-
-}
-    
-//function for Expense modal
+//function to put expense data to database
 function expenseResult()
 {
  
@@ -144,15 +128,40 @@ function expenseResult()
         }
    }    
 }
-function expenseToList()
+getTransaction()
+function getTransaction()
 {
-    let leftIcon=document.createElement('I')
-    leftIcon.className="fa fa-arrow-left"
-    
-    let downIcon=document.createElement('I')
-    downIcon.className="fa fa-arrow-down" 
-
-    leftIcon.id='expense-icon'
-    downIcon.id='expense-icon'
-    
+    firebase.firestore().collection('transaction').get().then(function(snapshot)
+    {
+        snapshot.forEach(function(docs)
+        {
+            console.log(docs.data())
+        })
+    })
 }
+
+// function expenseToList()
+// {
+//     let leftIcon=document.createElement('I')
+//     leftIcon.className="fa fa-arrow-left"
+    
+//     let downIcon=document.createElement('I')
+//     downIcon.className="fa fa-arrow-down" 
+
+//     leftIcon.id='expense-icon'
+//     downIcon.id='expense-icon'
+    
+// }
+// function incomeToList()
+// {
+    
+//     let rightIcon=document.createElement('I')
+//     rightIcon.className="fa fa-arrow-right"
+    
+//     let upwardIcon=document.createElement('I')
+//     upwardIcon.className="fa fa-arrow-up" 
+
+//     rightIcon.id='income-icon'
+//     upwardIcon.id='income-icon'
+
+// }
