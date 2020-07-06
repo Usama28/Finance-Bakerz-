@@ -15,7 +15,7 @@ function submitForm()
     .then(function(userResponse){
         console.log(userResponse)
         const userId = userResponse.user.uid    //user id sign up krty hwe jo generate hui
-
+        localStorage.setItem('userID',userId)
         /*
             1) .add({}) (generates unique ID for the document)
             2) .doc(<id>).set({}) (you tell the ID to firebase)

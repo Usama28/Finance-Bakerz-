@@ -1,6 +1,7 @@
 
 getTransaction()
 getResult()
+
 function getResult()
 {
     const myDate=new Date()
@@ -24,7 +25,6 @@ function logOut()
 {
     window.location.replace("../sign up login/login.html")
 }
-
 
 // function to put income data to database
 function incomeResult()
@@ -79,41 +79,7 @@ function incomeResult()
         }
     }
 }
-//display income modal
 
-function getTransaction()
-{
-    const bodyTable=document.getElementsByTagName('tbody')[0]
-    bodyTable.innerHTML=''
-    // firebase.firestore().collection('transaction').doc(id).get().then(function(snapshot) {snapshot.data()} ye km tb krngy jb hamy sir aik data/element chaye ho
-    firebase.firestore().collection('transaction').get().then(function(snapshot)
-    {                                                               //transaction k andr 3,4 item h is lye loop lgana lazmi ha
-        snapshot.forEach(function(docs)
-        {
-            console.log(docs.data())
-            const data=docs.data()   
-
-            const row =document.createElement('TR')
-            const type =document.createElement('TD')
-            const date =document.createElement('TD')
-            const category =document.createElement('TD')
-            const amount =document.createElement('TD')
-
-            type.innerHTML=data.type
-            date.innerHTML=data.Date      //data . k bad wo name likhy gye hai jis name se firebas eme save kraye hi value
-            category.innerHTML=data.Category
-            amount.innerHTML=data.Amount
-
-            row.appendChild(type)
-            row.appendChild(date)
-            row.appendChild(category)
-            row.appendChild(amount)
-            bodyTable.appendChild(row)
-
-        })
-    })
-}
-    
 //function to put expense data to database
 function expenseResult()
 {
@@ -151,6 +117,7 @@ function expenseResult()
         ).then(function()
         {
             clearExpense()
+            getTransaction()
             $('#expenseModal').modal('hide')
         })
        
@@ -164,6 +131,93 @@ function expenseResult()
    }    
 }
 
+//display data from database
+function getTransaction()
+{
+    // var getUserID=localStorage.getItem('userID')
+    const bodyTable=document.getElementsByTagName('tbody')[0]
+    bodyTable.innerHTML=''
+    // firebase.firestore().collection('transaction').doc(id).get().then(function(snapshot) {snapshot.data()} ye km tb krngy jb hamy sir aik data/element chaye ho
+    firebase.firestore().collection('transaction')
+    .orderBy('Date','desc')
+    // .where('userID','==',getUserID)
+    .get().then(function(snapshot)
+    {                                                               //transaction k andr 3,4 item h is lye loop lgana lazmi ha
+        snapshot.forEach(function(docs)
+        {
+            console.log(docs.data())
+            const data=docs.data()   
+
+            const row =document.createElement('TR')
+            const type =document.createElement('TD')
+            const date =document.createElement('TD')
+            const category =document.createElement('TD')
+            const amount =document.createElement('TD')
+
+            type.innerHTML=data.type
+            date.innerHTML=data.Date      //data . k bad wo name likhy gye hai jis name se firebas eme save kraye hi value
+            category.innerHTML=data.Category
+            amount.innerHTML=data.Amount
+
+            row.appendChild(type)
+            row.appendChild(date)
+            row.appendChild(category)
+            row.appendChild(amount)
+            bodyTable.appendChild(row)
+
+        })
+    })
+}
+
+//filter function
+function filter()
+{
+        // var getUserID=localStorage.getItem('userID')
+        const typeFilter=document.getElementById('filter-id').value
+        console.log(typeFilter)
+       if(typeFilter=='all')
+       {
+           return getTransaction()
+       }
+
+        //copying gettransaction()
+        const bodyTable=document.getElementsByTagName('tbody')[0]
+        bodyTable.innerHTML=''
+        
+        firebase.firestore().collection('transaction')
+        .where('type','==',typeFilter)               //just like if condition (multiple where use kr skty hain)
+        // .where('userID','==',getUserID)
+        .orderBy('Date','desc')  
+        .get()
+        .then(function(snapshot)
+        {                                                            
+            snapshot.forEach(function(docs)
+            {
+                console.log(docs.data())
+                const data=docs.data()   
+
+                const row =document.createElement('TR')
+                const type =document.createElement('TD')
+                const date =document.createElement('TD')
+                const category =document.createElement('TD')
+                const amount =document.createElement('TD')
+
+                type.innerHTML=data.type
+                date.innerHTML=data.Date      
+                category.innerHTML=data.Category
+                amount.innerHTML=data.Amount
+
+                row.appendChild(type)
+                row.appendChild(date)
+                row.appendChild(category)
+                row.appendChild(amount)
+                bodyTable.appendChild(row)
+
+            })
+        })
+    
+
+}
 
 // function expenseToList()
 // {
