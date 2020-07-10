@@ -12,7 +12,7 @@ function userdata()
     })
 }
 getTransaction()
-getResult()
+//getResult()
 
 function getResult()
 {
@@ -235,7 +235,7 @@ function getTransaction()
 //filter function
 function filter()
 {
-       // const userId=localStorage.getItem('userId')
+        const userId=localStorage.getItem('userId')
         const typeFilter=document.getElementById('filter-id').value
         console.log(typeFilter)
        if(typeFilter=='all')
@@ -250,7 +250,7 @@ function filter()
         firebase.firestore().collection('transaction')
         .where('type','==',typeFilter)               
         //.where(userId,'==','userId')       //just like if condition (multiple where use kr skty hain
-        .orderBy('Date','desc')  
+        //.orderBy('Date','desc')  
         .get()
         .then(function(snapshot)
         {                                                            
