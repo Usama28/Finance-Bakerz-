@@ -42,232 +42,234 @@
 
     <body>
         <!--head-->
-        <section class="sign-up"> 
-            <div class="d-flex justify-content-between ">
-                <a href="../index.html"><img src="../images/logo.png" width="20%" class="px-2" ></a>
-                <p class="text-success " style="margin: 1% 5% 1% 5%;">
-                    Welcome <span class="font-weight-bold" id="mail-span"></span>
-                    <img src="../images/avatar-png.png" width="30" >
-                  
-                     <abbr title="Log out" ><button class="fa fa-sign-out px-2" id="log-out" onclick="logOut()"></button></abbr>
-                       
-                    
-                </p>
-            </div>
-        </section>
+<section class="sign-up"> 
+    <div class="d-flex justify-content-between ">
+        <a href="../index.html"><img src="../images/logo.png" width="20%" class="px-2" ></a>
+        <p class="text-success " style="margin: 1% 5% 1% 5%;">
+            Welcome <span class="font-weight-bold" id="mail-span"></span>
+            <img src="../images/avatar-png.png" width="30" >
+          
+             <abbr title="Log out" ><button class="fa fa-sign-out px-2" id="log-out" onclick="logOut()"></button></abbr>
+               
+            
+        </p>
+    </div>
+</section>
 
-        <!--select section-->
-        <section>
-            <div class="container" >
-                <div class="row mt-5" style="color: grey;">
-                    <div class="col-md-4 ">
-                        <div class="" >
-                            <p>Filter By</p>
-                            <select id="" class="filter-style">
-                                <option value="">Today</option>
-                                <option value="">Date Range</option>
-                                <option value="">This Week</option>
-                                <option value="">This Month</option>
-                                <option value="">This Year</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Date From</p>
-                        <select id="" class="select-style">
-                            <option value="0">Jan</option>
-                                <option value="1">Feb</option>
-                                <option value="2">Mar</option>
-                                <option value="3">Apr</option>
-                                <option value="4">May</option>
-                                <option value="5">Jun</option>
-                                <option value="6">Jul</option>
-                        </select>
-                        <select id="" class="select-style">
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 ">
-                        <div>
-                            <p>Date To</p>
-                            <select id="select-month" class="select-style">
-                                <option value="0">Jan</option>
-                                <option value="1">Feb</option>
-                                <option value="2">Mar</option>
-                                <option value="3">Apr</option>
-                                <option value="4">May</option>
-                                <option value="5">Jun</option>
-                                <option value="6">Jul</option>
-                            </select>
-                            <select id="select-year" class="select-style">
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--filter 2nd section-->
-        <section>
-            <div class="container">
-                <div class=" mt-5">
-                    <select class="filter" >
-                        <p></p>
-                        <option value="">Filter by account</option>
+<!--select section-->
+<section>
+    <div class="container" >
+        <div class="row mt-5" style="color: grey;">
+            <div class="col-md-4 ">
+                <div class="" >
+                    <p>Filter By</p>
+                    <select id="" class="filter-style">
+                        <option value="">Today</option>
+                        <option value="">Date Range</option>
+                        <option value="">This Week</option>
+                        <option value="">This Month</option>
+                        <option value="">This Year</option>
                     </select>
                 </div>
-                <div class="mt-4">
-                    <p style="color: grey;">Filter By Type</p>
-                    <select class="filter" id="filter-id" oninput="filter()">
-                        <option value=""></option>
-                        <option value="all">All</option>
-                        <option value="income">Income</option>
-                        <option value="Expense">Expense</option>  
-                    </select>    
-                </div>   
             </div>
-        </section>
-        
-        <!--modal section-->
-        <section style="margin-top:8%;">
-            <div class="container" >
-                <div class="d-flex justify-content-between pt-2" id="modal-section">
-                    <div class="p-2">
-                        <h3>Transactions</h3>
-                    </div>                  
-                    <div class="d-flex justify-content-between p-3">
-                        <a href="#" class="px-2" id="btn-trans" data-toggle="modal" data-target="#incomeModal"><i class="fa fa-plus" aria-hidden="true"></i> INCOME</a>
-                        <a href="#" class="px-2" id="btn-trans" data-toggle="modal" data-target="#expenseModal"><i class="fa fa-plus" aria-hidden="true"></i> EXPENSE</a>
-                    </div>
-                </div>
-                <div class="">
-                    <table class="table table-hover table-bordered shadow-sm" id="trans-table">
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th >Date</th>
-                                <th >Category</th>
-                                <th >Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody class="font-weight-light" id="body-table">
-
-                        </tbody>
-                      </table>
-                </div>
+            <div class="col-md-4">
+                <p>Date From</p>
+                <select id="" class="select-style">
+                    <option value="0">Jan</option>
+                        <option value="1">Feb</option>
+                        <option value="2">Mar</option>
+                        <option value="3">Apr</option>
+                        <option value="4">May</option>
+                        <option value="5">Jun</option>
+                        <option value="6">Jul</option>
+                </select>
+                <select id="" class="select-style">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                </select>
             </div>
-
-        </section>
-
-        <!--income modal--> 
-        <div class="modal fade" id="incomeModal" tabindex="-1" role="dialog"  aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" >Income</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="text-light">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="form-group">
-                            <div >
-                                <label >Amount</label>
-                                <input type="number" placeholder="Enter Amount" class="form-control" id="amount-tag"> 
-                            </div>
-                            <div class="py-2">
-                                <label >Categories</label>
-                                <select id="select-tag" class="form-control">
-                                    <option value=""></option>
-                                    <option value="Personal Income">Personal Income</option>
-                                    <option value="VC Income">VC Income</option>
-                                    <option value="Project Income">Project Income</option>
-                                    <option value="Home Income">Home Income</option>
-                                </select>
-                            </div>
-                            <div class="py-1">
-                                <label >Date</label>
-                                <input type="date" class="form-control" id="date-tag">
-                            </div>
-                            <div class="py-1">
-                                <label >Description</label>
-                                <textarea  class="form-control" id="desc-tag"></textarea>
-                            </div>
-                            <div id="error-ID1">
-                                
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" onclick="incomeResult()"  id="income-btn">Add Income</button>
-                    </div>
+            <div class="col-md-4 ">
+                <div>
+                    <p>Date To</p>
+                    <select id="select-month" class="select-style">
+                        <option value="0">Jan</option>
+                        <option value="1">Feb</option>
+                        <option value="2">Mar</option>
+                        <option value="3">Apr</option>
+                        <option value="4">May</option>
+                        <option value="5">Jun</option>
+                        <option value="6">Jul</option>
+                    </select>
+                    <select id="select-year" class="select-style">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                    </select>
                 </div>
+                
             </div>
         </div>
+    </div>
+</section>
 
-        <!--expense modal-->
-        <div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" >Expense</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="text-light">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="form-group">
-                            <div >
-                                <label >Amount</label>
-                                <input type="number" placeholder="Enter Amount" class="form-control" id="amount2-tag"> 
-                            </div>
-                            <div class="py-2">
-                                <label >Categories</label>
-                                <select id="select2-tag" class="form-control">
-                                    <option value=""></option>
-                                    <option value="Personal">Personal</option>
-                                    <option value="Food and Dining">Food and Dining</option>
-                                    <option value="Bills and Utilities">Bills and Utilities</option>
-                                    <option value="Health and Fitness">Health and Fitness</option>
-                                </select>
-                            </div>
-                            <div class="py-2">
-                                <label>Date</label>
-                                <input type="date" class="form-control" id="date2-tag">
-                            </div>
-                            <div class="py-2">
-                                <label >Description</label>
-                                <textarea  class="form-control" id="desc2-tag"></textarea>
-                            </div>
-                            <div class="py-2">
-                                <label >Upload File / Image</label>
-                                <input type="file" name="img" accept="image/*" class="form-control" id="file-id">
-                            </div>
-                            <div id="error-ID2">
-                              
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" onclick="expenseResult()" id="expense-btn">Add Expense</button>
-                    </div>
-                </div>
+<!--filter 2nd section-->
+<section>
+    <div class="container">
+        <div class=" mt-5">
+            <select class="filter" >
+                <p></p>
+                <option value="">Filter by account</option>
+            </select>
+        </div>
+        <div class="mt-4">
+            <p style="color: grey;">Filter By Type</p>
+            <select class="filter" id="filter-id" oninput="filter()">
+                <option value=""></option>
+                <option value="all">All</option>
+                <option value="income">Income</option>
+                <option value="Expense">Expense</option>  
+            </select>    
+        </div>   
+    </div>
+</section>
+
+<!--modal section-->
+<section style="margin-top:8%;">
+    <div class="container" >
+        <div class="d-flex justify-content-between pt-2" id="modal-section">
+            <div class="p-2">
+                <h3>Transactions</h3>
+            </div>                  
+            <div class="d-flex justify-content-between p-3">
+                <a href="#" class="px-2" id="btn-trans" data-toggle="modal" data-target="#incomeModal"><i class="fa fa-plus" aria-hidden="true"></i> INCOME</a>
+                <a href="#" class="px-2" id="btn-trans" data-toggle="modal" data-target="#expenseModal"><i class="fa fa-plus" aria-hidden="true"></i> EXPENSE</a>
             </div>
         </div>
+        <div class="">
+            <table class="table table-hover table-bordered shadow-sm" id="trans-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Type</th>
+                        <th >Date</th>
+                        <th >Category</th>
+                        <th >Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="font-weight-light" id="body-table">
 
-        <section>
-           
-        </section>
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</section>
+
+<!--income modal--> 
+<div class="modal fade" id="incomeModal" tabindex="-1" role="dialog"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" >Income</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-light">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-group">
+                    <div >
+                        <label >Amount</label>
+                        <input type="number" placeholder="Enter Amount" class="form-control" id="amount-tag"> 
+                    </div>
+                    <div class="py-2">
+                        <label >Categories</label>
+                        <select id="select-tag" class="form-control">
+                            <option value=""></option>
+                            <option value="Personal Income">Personal Income</option>
+                            <option value="VC Income">VC Income</option>
+                            <option value="Project Income">Project Income</option>
+                            <option value="Home Income">Home Income</option>
+                        </select>
+                    </div>
+                    <div class="py-1">
+                        <label >Date</label>
+                        <input type="date" class="form-control" id="date-tag">
+                    </div>
+                    <div class="py-1">
+                        <label >Description</label>
+                        <textarea  class="form-control" id="desc-tag"></textarea>
+                    </div>
+                    <div id="error-ID1">
+                        
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-success" onclick="incomeResult()"  id="income-btn">Add Income</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--expense modal-->
+<div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" >Expense</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-light">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-group">
+                    <div >
+                        <label >Amount</label>
+                        <input type="number" placeholder="Enter Amount" class="form-control" id="amount2-tag"> 
+                    </div>
+                    <div class="py-2">
+                        <label >Categories</label>
+                        <select id="select2-tag" class="form-control">
+                            <option value=""></option>
+                            <option value="Personal">Personal</option>
+                            <option value="Food and Dining">Food and Dining</option>
+                            <option value="Bills and Utilities">Bills and Utilities</option>
+                            <option value="Health and Fitness">Health and Fitness</option>
+                        </select>
+                    </div>
+                    <div class="py-2">
+                        <label>Date</label>
+                        <input type="date" class="form-control" id="date2-tag">
+                    </div>
+                    <div class="py-2">
+                        <label >Description</label>
+                        <textarea  class="form-control" id="desc2-tag"></textarea>
+                    </div>
+                    <div class="py-2">
+                        <label >Upload File / Image</label>
+                        <input type="file" name="img" accept="image/*" class="form-control" id="file-id">
+                    </div>
+                    <div id="error-ID2">
+                      
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-success" onclick="expenseResult()" id="expense-btn">Add Expense</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+   
+</section>
 
     </body>
     <script src="transaction.js"></script>

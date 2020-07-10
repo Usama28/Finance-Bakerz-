@@ -1,5 +1,5 @@
 console.log(firebase)
-console.log('firesotr',firebase.firestore)
+console.log('firestore===>',firebase.firestore)
 function submitForm()
 { 
     var getPlan=document.getElementById('select-plan').value
@@ -15,7 +15,7 @@ function submitForm()
     .then(function(userResponse){
         console.log(userResponse)
         const userId = userResponse.user.uid    //user id sign up krty hwe jo generate hui
-        localStorage.setItem('userID',userId)
+        // localStorage.setItem('userId',userId)
         /*
             1) .add({}) (generates unique ID for the document)
             2) .doc(<id>).set({}) (you tell the ID to firebase)

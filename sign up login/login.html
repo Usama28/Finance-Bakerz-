@@ -53,7 +53,7 @@
         {
             var getMail=document.getElementById('email').value
             var getPassword=document.getElementById('password').value
-
+            localStorage.setItem('storageMail',getMail)
             firebase.auth().signInWithEmailAndPassword(getMail, getPassword)
             .then(function(userResponse)
              {
