@@ -1,16 +1,16 @@
 // userdata()
-// function userdata()
-// {
-//     const userId=localStorage.getItem('userId')
-//     console.log(userId)
-//     firebase.firestore().collection('users').doc(userId).get()
-//     .then(function(snapshot)
-//     {
-//         const userobj=snapshot.data()
-//         document.getElementById('name').innerHTML=userobj.Username
-//         document.getElementById('mail').innerHTML=userobj.Email
-//     })
-// }
+function userdata()
+{
+    const userId=localStorage.getItem('userId')
+    console.log(userId)
+    firebase.firestore().collection('users').doc(userId).get()
+    .then(function(snapshot)
+    {
+        const userobj=snapshot.data()
+        document.getElementById('name').innerHTML=userobj.Username
+        document.getElementById('mail').innerHTML=userobj.Email
+    })
+}
 getTransaction()
 getResult()
 
@@ -330,28 +330,3 @@ function filter()
 
 }
 
-// // function expenseToList()
-// // {
-// //     let leftIcon=document.createElement('I')
-// //     leftIcon.className="fa fa-arrow-left"
-    
-// //     let downIcon=document.createElement('I')
-// //     downIcon.className="fa fa-arrow-down" 
-
-// //     leftIcon.id='expense-icon'
-// //     downIcon.id='expense-icon'
-    
-// // }
-// // function incomeToList()
-// // {
-    
-// //     let rightIcon=document.createElement('I')
-// //     rightIcon.className="fa fa-arrow-right"
-    
-// //     let upwardIcon=document.createElement('I')
-// //     upwardIcon.className="fa fa-arrow-up" 
-
-// //     rightIcon.id='income-icon'
-// //     upwardIcon.id='income-icon'
-
-// // }
