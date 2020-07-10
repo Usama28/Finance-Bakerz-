@@ -55,7 +55,7 @@
 {
     border: none;
     border-bottom: 1px solid rgb(165, 160, 160);
-    width: 20%;   
+    width: 26%;   
 }
 .bottom-style
 {
@@ -74,7 +74,7 @@
 {
     border: none;
     border-bottom: 1px solid grey;
-    width: 30%;
+    width: 81%;
 }
 #file-id
 {
@@ -82,6 +82,24 @@
     color: white;
     padding: 2% 0% 8% 2%;
 }
+#rupees-id
+{
+    height: 100%;
+    font-size: 130%;
+    padding: 12%;
+}
+#green-rupees
+{
+    font-size: 190%;
+    color: green;
+}
+#red-rupees
+{
+    font-size: 190%;
+    color: red;
+}
+
+/* modal styling */
 #modal-section
 {
     background-color: #085E33 ;
