@@ -259,7 +259,70 @@ function filter()
                 console.log(docs.data())
                 const data=docs.data()   
 
-                
+                if(data.type=='income')
+                {
+                    let rightIcon=document.createElement('I')
+                    rightIcon.className="fa fa-arrow-right"
+                    let upwardIcon=document.createElement('I')
+                    upwardIcon.className="fa fa-arrow-up"             
+                    rightIcon.id='income-icon'
+                    upwardIcon.id='income-icon'
+    
+                    const row =document.createElement('TR')
+                    const right =document.createElement('TD')
+                    const type =document.createElement('TD')
+                    const date =document.createElement('TD')
+                    const category =document.createElement('TD')
+                    const amount =document.createElement('TD')
+                    const upward =document.createElement('TD')
+    
+                    right.appendChild(rightIcon)
+                    type.innerHTML=data.type
+                    date.innerHTML=data.Date      //data . k bad wo name likhy gye hai jis name se firebase eme save kraye hi value
+                    category.innerHTML=data.Category
+                    amount.innerHTML=data.Amount
+                    upward.appendChild(upwardIcon)
+    
+                    row.appendChild(right)
+                    row.appendChild(type)
+                    row.appendChild(date)
+                    row.appendChild(category)
+                    row.appendChild(amount)
+                    row.appendChild(upward)
+                    bodyTable.appendChild(row)
+                }
+                else
+                {
+                    let leftIcon=document.createElement('I')
+                    leftIcon.className="fa fa-arrow-left"
+                    let downIcon=document.createElement('I')
+                    downIcon.className="fa fa-arrow-down" 
+                    leftIcon.id='expense-icon'
+                    downIcon.id='expense-icon'
+    
+                    const row =document.createElement('TR')
+                    const left =document.createElement('TD')
+                    const type =document.createElement('TD')
+                    const date =document.createElement('TD')
+                    const category =document.createElement('TD')
+                    const amount =document.createElement('TD')
+                    const down =document.createElement('TD')
+    
+                    left.appendChild(leftIcon)
+                    type.innerHTML=data.type
+                    date.innerHTML=data.Date      //data . k bad wo name likhy gye hai jis name se firebase eme save kraye hi value
+                    category.innerHTML=data.Category
+                    amount.innerHTML=data.Amount
+                    down.appendChild(downIcon)
+    
+                    row.appendChild(left)
+                    row.appendChild(type)
+                    row.appendChild(date)
+                    row.appendChild(category)
+                    row.appendChild(amount)
+                    row.appendChild(down)
+                    bodyTable.appendChild(row)
+                }
     
             })
         })
