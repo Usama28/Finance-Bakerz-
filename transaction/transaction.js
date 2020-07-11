@@ -77,7 +77,8 @@ function incomeResult()
             // alert('income successful')
             clearincome()
             getTransaction()
-            $('#incomeModal').modal('hide')        
+            $('#incomeModal').modal('hide')
+            showRupees()        
         })
      
     //function to clear all field 
@@ -131,6 +132,7 @@ function expenseResult()
             clearExpense()
             getTransaction()
             $('#expenseModal').modal('hide')
+            showRupees()
         })
        
         function clearExpense()
@@ -160,7 +162,7 @@ function getTransaction()
         snapshot.forEach(function(docs)
         {
             
-            console.log(docs.data())
+           // console.log(docs.data())
             const data=docs.data()  
 
             if(data.type=='income')
@@ -327,6 +329,34 @@ function filter()
             })
         })
     
+}
 
+showRupees()
+function showRupees()
+{
+    firebase.firestore().collection('transaction').get()
+    .then(function(snapshot)
+    {   
+        var totalIncome=0 
+        var totalExpense=0                                                           
+        snapshot.forEach(function(docs)
+        {
+            const data=docs.data()     
+            if(data.type=='income')
+            {
+                // console.log(+data.Amount)
+                totalIncome=totalIncome+(+data.Amount)
+            }
+            else
+            {
+                totalExpense=totalExpense+(+data.Amount)
+            }
+
+        })
+        document.getElementById('total-incomed').innerHTML="Rs"+totalIncome +" "
+        document.getElementById('total-expensed').innerHTML="Rs"+totalExpense +" "
+        console.log(totalIncome)
+        console.log(totalExpense)
+    })
 }
 
